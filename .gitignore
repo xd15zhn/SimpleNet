@@ -1,0 +1,5 @@
+/.idea/
+/backup/
+/model/__pycache__/
+/utils/__pycache__/
+*.pth
