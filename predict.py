@@ -16,5 +16,5 @@ model.eval()
 with torch.no_grad():
     image = torch.tensor(image, dtype=torch.float32).unsqueeze(0)
     predict = model(image)
-    predict = predict[0][0].item()
+    predict = torch.sigmoid(predict[0][0]).item()
 print(f'predict:{predict}')

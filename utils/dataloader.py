@@ -30,7 +30,7 @@ class SimpleDatasetClass(Dataset):
 class SimpleDatasetDetect(Dataset):
     def __init__(self):
         super().__init__()
-        self.img_path = 'E:/dataset/face1.png'
+        self.img_path = 'D:/face1.png'
         self.x = 138
         self.y = 88
         self.w = 86
@@ -49,9 +49,7 @@ class SimpleDatasetDetect(Dataset):
         image = image_translation(image, move_x-self.sx, move_y-self.sy)
         image = image[:, :, ::-1].transpose(2, 0, 1)
         image = torch.tensor(image/256, dtype=torch.float32)
-        x1 = move_x - self.w/2
-        y1 = move_y - self.h/2
-        x2 = move_x + self.w/2
-        y2 = move_y + self.w/2
-        label = torch.tensor([move_x, move_y, self.w, self.h], dtype=torch.float32)/224
+        x = move_x + self.w/2
+        y = move_y + self.h/2
+        label = torch.tensor([x, y, self.w, self.h], dtype=torch.float32)/224
         return image, label

@@ -23,7 +23,7 @@ while True:
     for step, data in enumerate(train_dataloader, start=0):
         images, labels = data
         preds_train = model(images)
-        train_loss = loss_function(preds_train[:, 0], labels)
+        train_loss = loss_function(torch.sigmoid(preds_train[:, 0]), labels)
         optimizer.zero_grad()
         train_loss.backward()
         optimizer.step()
