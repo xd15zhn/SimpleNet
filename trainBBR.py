@@ -5,7 +5,7 @@ from utils.loss import bounding_box_loss
 
 lr = 1e-5
 train_dataset = SimpleDatasetDetect()
-train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=32, shuffle=True)
+train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=3, shuffle=True)
 print('Dataset loading complete.')
 # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 model = SimpleNet()
